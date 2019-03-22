@@ -168,9 +168,7 @@
 
 ## 2. 使用 VSCode 打开项目
 
-打开项目目录，右键使用 VSCode 打开 <small>Open with Code</small>。
-
-![Open with VSCode](https://code.aliyun.com/iinfinity/api/raw/master/Open%20with%20VSCode.png)
+打开项目目录，右键使用 VSCode 打开 <small>`Open with Code`</small> 。
 
 ### 1. 在数据库中创建表
 
