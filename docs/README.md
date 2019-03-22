@@ -50,57 +50,64 @@
 
    以下为可选了解：
 
-   - [Git](https://cn.bing.com/search?q=Git) 源代码管理
-   - [OpenJDK](https://cn.bing.com/search?q=OpenJDK) 开源版本的 JDK
-   - [VSCode](https://cn.bing.com/search?q=VSCode) 社区最流行的开源编辑器<del>之一</del>
+- [Git](https://cn.bing.com/search?q=Git) 源代码管理
+- [OpenJDK](https://cn.bing.com/search?q=OpenJDK) 开源版本的 JDK
+- [VSCode](https://cn.bing.com/search?q=VSCode) 社区最流行的开源编辑器<del>之一</del>
 
 # 环境配置
 
 ## 1. 安装 JDK
 
-   1. 下载
+1. 下载
 
-      打开 [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 下载页面，根据操作系统选择对应版本的 JDK 下载。
+   打开 [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 下载页面，根据操作系统选择对应版本的 JDK 下载。
 
-   2. 安装
+2. 安装
 
-   3. 测试安装是否成功
+3. 测试安装是否成功
 
-      打开终端（Windows：`CMD`  或 `Powershell`，MAC：`Shell`）输入 `java -version`，如果有如下输出：
+   打开终端（Windows：`CMD`  或 `Powershell`，MAC：`Shell`）输入 `java -version`，如果有如下输出：
 
-      ```shell
-      C:\>java -version
-      openjdk version "11.0.2-redhat" 2019-01-15 LTS
-      OpenJDK Runtime Environment (build 11.0.2-redhat+7-LTS)
-      OpenJDK 64-Bit Server VM (build 11.0.2-redhat+7-LTS, mixed mode)
-      ```
+   ```shell
+   C:\>java -version
+   openjdk version "11.0.2-redhat" 2019-01-15 LTS
+   OpenJDK Runtime Environment (build 11.0.2-redhat+7-LTS)
+   OpenJDK 64-Bit Server VM (build 11.0.2-redhat+7-LTS, mixed mode)
+   ```
 
-      则表明安装成功。
+   则表明安装成功。
 
-      >  详细方法可参阅 [RUNNOOB](www.runnoob.com) 的 [Java 安装教程](http://www.runoob.com/java/java-environment-setup.html)。
+   > 详细方法可参阅 [RUNNOOB](www.runnoob.com) 的 [Java 安装教程](http://www.runoob.com/java/java-environment-setup.html)。
+
 ## 2. 安装 Maven
 
-   1. 下载
+1. 下载
 
-      打开 [Maven Project](https://maven.apache.org/download.cgi) 下载页面，选择对应版本的 Maven 下载。
+   打开 [Maven Project](https://maven.apache.org/download.cgi) 下载页面，选择对应版本的 Maven 下载。
 
-   2. 安装
+2. 安装
 
  详细方法可参阅 [RUNNOOB](www.runnoob.com) 的 [Maven 安装教程](http://www.runoob.com/maven/maven-setup.html)。
 
 ## 3. 安装 VSCode
 
-  1. 下载
+1. 下载
 
-     打开 [VSCode](https://code.visualstudio.com/download) 下载页面，选择对应版本的 VSCode 下载。
+   打开 [VSCode](https://code.visualstudio.com/download) 下载页面，选择对应版本的 VSCode 下载。
 
-  2. 安装
+2. 安装
 
-  3. 安装基础插件
+3. 安装基础插件
 
-     点击左侧的插件选项卡，搜索 `Chinese` 安装中文语言包，搜索 `Java` 安装 `Java Extension Pack` 开发环境，如图：
+   点击左侧的插件选项卡，搜索 `Chinese` 安装中文语言包：
 
-     ![VSCode Install Plugin]()
+   ![VSCode Install Plugin Chinese](https://raw.githubusercontent.com/DevinDon/springboot-mybatis-demo/master/docs/image/VSCode-Install-Plugin-Chinese.png)
+
+   搜索 `Java` 安装 `Java Extension Pack` 开发环境：
+
+   ![VSCode Install Plugin Java](https://raw.githubusercontent.com/DevinDon/springboot-mybatis-demo/master/docs/image/VSCode-Install-Plugin-Java.png)
+
+
 
 ## 4. 安装或使用数据库
 
@@ -186,7 +193,6 @@
 
    ![Create Table Named user](https://raw.githubusercontent.com/DevinDon/springboot-mybatis-demo/master/docs/image/Create-Table-Named-user.png)
 
-
 至此，数据库已经准备就绪了。
 
 ### 2. 配置数据库连接
@@ -249,76 +255,76 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver # JDBC 驱动
 
    ```java
    package com.example.demo.entity;
-   
+
    public class UserEntity {
-   
+
      private int id;
-   
+
      private String name;
-   
+
      private String email;
-   
+
      public UserEntity() {
        this(0, null, null);
      }
-   
+
      public UserEntity(String name, String email) {
        this(0, name, email);
      }
-   
+
      public UserEntity(int id, String name, String email) {
        this.id = id;
        this.name = name;
        this.email = email;
      }
-   
+
      /**
       * @return the id
       */
      public int getId() {
        return id;
      }
-   
+
      /**
       * @param id the id to set
       */
      public void setId(int id) {
        this.id = id;
      }
-   
+
      /**
       * @return the name
       */
      public String getName() {
        return name;
      }
-   
+
      /**
       * @param name the name to set
       */
      public void setName(String name) {
        this.name = name;
      }
-   
+
      /**
       * @return the email
       */
      public String getEmail() {
        return email;
      }
-   
+
      /**
       * @param email the email to set
       */
      public void setEmail(String email) {
        this.email = email;
      }
-   
+
      @Override
      public String toString() {
        return "Name: " + this.name + "/nEmail: " + this.email + "/n";
      }
-   
+
    }
    ```
 
@@ -344,17 +350,17 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver # JDBC 驱动
 
    ```java
    package com.example.demo.mapper;
-   
+
    import java.util.List;
-   
+
    import com.example.demo.entity.UserEntity;
-   
+
    import org.apache.ibatis.annotations.Delete;
    import org.apache.ibatis.annotations.Insert;
    import org.apache.ibatis.annotations.Select;
-   
+
    public interface UserMapper {
-   
+
      /**
       * Insert one user.
       *
@@ -363,7 +369,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver # JDBC 驱动
       */
      @Insert("INSERT INTO `database`.`user`(`name`, `email`) VALUES (#{name}, #{email})")
      public void insertOne(UserEntity user);
-   
+
      /**
       * Delete all users.
       *
@@ -371,7 +377,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver # JDBC 驱动
       */
      @Delete("TRUNCATE `user`")
      public void deleteAll();
-   
+
      /**
       * Select all users.
       *
@@ -379,7 +385,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver # JDBC 驱动
       */
      @Select("SELECT * FROM `user`")
      public List<UserEntity> selectAll();
-   
+
    }
    ```
 
