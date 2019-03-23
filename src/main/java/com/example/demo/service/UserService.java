@@ -12,7 +12,7 @@ public class UserService implements Service {
   private static final long serialVersionUID = 1L;
 
   @Autowired
-  public UserMapper mapper;
+  private UserMapper mapper;
 
   /**
    * Sign in service.
