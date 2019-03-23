@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
-public class UserEntity {
+public class UserEntity implements Entity {
+
+  private static final long serialVersionUID = 1L;
 
   private int id;
 
