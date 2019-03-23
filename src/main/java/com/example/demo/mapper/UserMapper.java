@@ -6,33 +6,40 @@ import com.example.demo.entity.UserEntity;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-public interface UserMapper {
+public interface UserMapper extends Mapper<UserEntity> {
 
-  /**
-   * Insert one user.
-   *
-   * @param user {User} User information.
-   * @return {void} Nothing.
-   */
-  @Insert("INSERT INTO `database`.`user`(`name`, `email`) VALUES (#{name}, #{email})")
-  public void insertOne(UserEntity user);
+  @Override
+  @Select("SELECT COUNT(1) FROM `user`")
+  public int count();
 
-  /**
-   * Delete all users.
-   *
-   * @return {void} Nothing.
-   */
+  @Override
+  @Delete("DELETE FROM `user` WHERE ${filter}")
+  public boolean delete(@Param(value = "filter") String filter);
+
+  @Override
   @Delete("TRUNCATE `user`")
   public void deleteAll();
 
-  /**
-   * Select all users.
-   *
-   * @return {List<UserEntity>} All users.
-   */
+  @Override
+  @Insert("INSERT INTO `user`(`name`, `email`) VALUES (#{name}, #{email})")
+  @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
+  public boolean insert(UserEntity entity);
+
+  @Override
+  @Select("SELECT * FROM `user` WHERE ${filter}")
+  public List<UserEntity> select(@Param(value = "filter") String filter);
+
+  @Override
   @Select("SELECT * FROM `user`")
   public List<UserEntity> selectAll();
+
+  @Override
+  @Update("UPDATE `user` SET `name` = #{name}, `email` = #{email} WHERE `id` = #{id}")
+  public boolean update(UserEntity entity);
 
 }
