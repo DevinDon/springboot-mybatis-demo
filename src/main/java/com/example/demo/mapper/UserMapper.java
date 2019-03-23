@@ -19,7 +19,7 @@ public interface UserMapper extends Mapper<UserEntity> {
 
   @Override
   @Delete("DELETE FROM `user` WHERE ${filter}")
-  public boolean delete(@Param(value = "filter") String filter);
+  public boolean delete(@Param("filter") String filter);
 
   @Override
   @Delete("TRUNCATE `user`")
@@ -32,7 +32,7 @@ public interface UserMapper extends Mapper<UserEntity> {
 
   @Override
   @Select("SELECT * FROM `user` WHERE ${filter}")
-  public List<UserEntity> select(@Param(value = "filter") String filter);
+  public List<UserEntity> select(@Param("filter") String filter);
 
   @Override
   @Select("SELECT * FROM `user`")
